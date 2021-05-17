@@ -1,7 +1,7 @@
 # AccessGithubSimple
 This is Access company test simple code.
 
-The project working of six hour 
+The project working of four hour 
 Use MVVM + Databinding + Repository and import koin lib Dependency Injection
 Connect Api use retrofit third-party and use native navigation transfer page ui
 Then use Annotation customization object on module lib, can simplify fragment initialization code.
