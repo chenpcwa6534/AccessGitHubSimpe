@@ -1,6 +1,6 @@
 package com.masphe.accessgithub.dataCenter.api.response
 
-data class User(
+data class UserForOld(
     val avatar_url: String,
     val bio: String,
     val blog: String,

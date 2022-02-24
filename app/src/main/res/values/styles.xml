@@ -5,4 +5,31 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+
+    <style name="Text"></style>
+
+    <style name="Text.UserName">
+        <item name="android:textSize">@dimen/font_user_name</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Text.HeadShot">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/font_headshot</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Toolbar"></style>
+
+    <style name="Toolbar.TitleTextStyle" parent="@style/Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="Toolbar.PopupTheme" parent="@style/ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">#FFF</item>
+        <item name="actionOverflowMenuStyle">@style/Toolbar.OverflowMenuStyle</item>
+    </style>
+    <style name="Toolbar.OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>  <!--讓跳出的選項視窗不會遮住Toolbar-->
+    </style>
 </resources>

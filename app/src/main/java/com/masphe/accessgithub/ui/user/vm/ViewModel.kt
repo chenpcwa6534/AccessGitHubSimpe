@@ -8,7 +8,7 @@ import com.masphe.accessgithub.ui.user.model.Model
 import kotlinx.coroutines.*
 
 class ViewModel constructor(private val model: Model) : BaseViewModel(){
-    private val TAG = "User VM"
+    private val TAG = "UserForOld VM"
 
     private val uiState = UIState()
 

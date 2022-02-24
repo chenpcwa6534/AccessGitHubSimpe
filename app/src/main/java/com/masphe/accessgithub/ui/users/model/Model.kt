@@ -3,7 +3,7 @@ package com.masphe.accessgithub.ui.users.model
 import com.masphe.accessgithub.dataCenter.Repository
 import com.masphe.accessgithub.dataCenter.api.HttpResult
 import com.masphe.accessgithub.dataCenter.api.StatusCode
-import com.masphe.accessgithub.dataCenter.api.response.User
+import com.masphe.accessgithub.dataCenter.api.response.UserForOld
 import com.masphe.accessgithub.ui.base.BaseModel
 
 class Model constructor(private val repository: Repository): BaseModel(), IModel{
@@ -15,7 +15,7 @@ class Model constructor(private val repository: Repository): BaseModel(), IModel
     }
 
     override suspend fun getUsers(): HttpResult<Bean.Users> {
-        val response = this.repository.getUsers()
+        val response = this.repository.getOldUsers()
         return when (response) {
             is HttpResult.onSuccess -> if (response.data.isNullOrEmpty()){
                 HttpResult.onError(StatusCode.NoData.errorCode, StatusCode.NoData.errorMsg)
@@ -26,7 +26,7 @@ class Model constructor(private val repository: Repository): BaseModel(), IModel
         }
     }
 
-    private fun getUser(response: MutableList<User>): Bean.Users{
+    private fun getUser(response: MutableList<UserForOld>): Bean.Users{
         response.forEach {
             val user = Bean.User(it.avatar_url, it.login, it.site_admin)
             this.userList.users.add(user)

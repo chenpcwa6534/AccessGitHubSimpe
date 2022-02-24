@@ -12,4 +12,13 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="bg_headshot_purple">#800080</color>
+    <color name="bg_headshot_green">#3AB900</color>
+    <color name="bg_headshot_blue">#2D9DE4</color>
+    <color name="bg_headshot_orange">#F15A24</color>
+    <color name="bg_headshot_red">#EC407A</color>
+
+    <color name="bg_album_name">#30000000</color>
+    <color name="bg_photo_placeholder">#D7DDE7</color>
 </resources>

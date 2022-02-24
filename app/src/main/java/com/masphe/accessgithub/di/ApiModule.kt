@@ -1,5 +1,6 @@
 package com.masphe.accessgithub.di
 
+import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -34,11 +35,11 @@ val retrofitClient = module {
             .build()
     }
 
-    fun provideRepository(client: Retrofit) =
-        Repository(client)
+    fun provideRepository(context: Context, client: Retrofit) =
+        Repository(context, client)
 
     single { provideOkHttpClient() }
     single { provideConverter() }
     single { provideRetrofit(get(), get()) }
-    single { provideRepository(get()) }
+    single { provideRepository(get(), get()) }
 }

@@ -15,7 +15,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 @LayoutId(R.layout.fragment_user)
 class UserFragment: BaseFragment(){
-    private val TAG = "User Fragment"
+    private val TAG = "UserForOld Fragment"
 
     private val viewModel by viewModel<ViewModel>()
 

@@ -1,6 +1,7 @@
 package com.masphe.accessgithub.widgets
 
 import android.content.Context
+import android.os.Looper
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -18,12 +19,16 @@ class LoadingDialog constructor(private val context: Context?){
         val tvTip: TextView = loadView.findViewById(R.id.tvTip)
         tvTip.text = "Loading..."
 
+        Looper.prepare()
         this.alertDialog.show()
+        Looper.loop()
     }
 
     fun dismiss() {
         if (this.alertDialog != null && this.alertDialog.isShowing()) {
+            Looper.prepare()
             this.alertDialog.dismiss()
+            Looper.loop()
         }
     }
 }

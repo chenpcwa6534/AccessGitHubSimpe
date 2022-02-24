@@ -8,12 +8,11 @@ import com.masphe.accessgithub.ui.users.model.Model
 import com.masphe.accessgithub.ui.users.view.UsersAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class ViewModel constructor(private val model: Model): BaseViewModel(), UsersAdapter.OnItemClickListener{
-    private val TAG = "Users VM"
+    private val TAG = "Other VM"
 
 
     private val uiState = UIState()

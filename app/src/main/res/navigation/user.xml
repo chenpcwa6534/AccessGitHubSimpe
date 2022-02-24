@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user"
-    app:startDestination="@id/usersFragment">
+    app:startDestination="@id/albumListFragment">
 
     <activity
         android:id="@+id/mainActivity"
         android:name="com.masphe.accessgithub.ui.MainActivity"
         android:label="MainActivity"
-        tools:layout="@layout/fragment_users"/>
+        tools:layout="@layout/fragment_album_list"/>
 
     <fragment
         android:id="@+id/usersFragment"
@@ -26,4 +26,20 @@
         android:name="com.masphe.accessgithub.ui.user.view.UserFragment"
         android:label="UserFragment"
         tools:layout="@layout/fragment_user"/>
+
+    <fragment
+        android:id="@+id/albumListFragment"
+        android:name="com.masphe.accessgithub.ui.albumList.view.AlbumListFragment"
+        android:label="AlbumListFragment"
+        tools:layout="@layout/fragment_album_list">
+        <action
+            android:id="@+id/action_albumListFragment_to_albumFragment"
+            app:destination="@id/albumFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.masphe.accessgithub.ui.album.view.AlbumFragment"
+        android:label="AlbumFragment"
+        tools:layout="@layout/fragment_album"/>
 </navigation>

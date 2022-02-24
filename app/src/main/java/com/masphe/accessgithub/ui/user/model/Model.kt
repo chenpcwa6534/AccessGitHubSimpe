@@ -3,7 +3,7 @@ package com.masphe.accessgithub.ui.user.model
 import com.masphe.accessgithub.dataCenter.Repository
 import com.masphe.accessgithub.dataCenter.api.HttpResult
 import com.masphe.accessgithub.dataCenter.api.StatusCode
-import com.masphe.accessgithub.dataCenter.api.response.User
+import com.masphe.accessgithub.dataCenter.api.response.UserForOld
 import com.masphe.accessgithub.ui.base.BaseModel
 
 
@@ -25,7 +25,7 @@ class Model constructor(private val repository: Repository): BaseModel(), IModel
         }
     }
 
-    private fun getUserInfo(response: User): Bean.User =
+    private fun getUserInfo(response: UserForOld): Bean.User =
         Bean.User(
             response.avatar_url,
             response.bio,
