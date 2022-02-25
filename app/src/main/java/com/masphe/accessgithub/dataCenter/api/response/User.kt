@@ -1,11 +1,5 @@
 package com.masphe.accessgithub.dataCenter.api.response
 
-
-data class Other(
-    val users: MutableList<User>,
-    val defaultAlbums: MutableList<Album>
-)
-
 data class User(
     val id: Int,
     val name: String,

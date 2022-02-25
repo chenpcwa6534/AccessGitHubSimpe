@@ -5,5 +5,6 @@ import com.masphe.accessgithub.extension.default
 
 open class BaseUiState{
     val isShowProgress = MutableLiveData<Boolean>().default(false)
-    val isShowErrorDialog = MutableLiveData<String>()
+    val errorDialogMsg = MutableLiveData<String>()
+    val isShowErrorDialog = MutableLiveData<Boolean>()
 }

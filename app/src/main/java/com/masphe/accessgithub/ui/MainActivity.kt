@@ -7,7 +7,7 @@ import com.masphe.lib.arch.components.LayoutId
 import com.masphe.lib.arch.components.NavHostId
 
 @LayoutId(R.layout.activity_main)
-@NavHostId(R.id.usersFragment)
+@NavHostId(R.id.albumListFragment)
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

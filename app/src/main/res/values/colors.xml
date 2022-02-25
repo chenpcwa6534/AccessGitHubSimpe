@@ -13,6 +13,8 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <color name="bg_listview">#A1A1A1</color>
+
     <color name="bg_headshot_purple">#800080</color>
     <color name="bg_headshot_green">#3AB900</color>
     <color name="bg_headshot_blue">#2D9DE4</color>
@@ -21,4 +23,5 @@
 
     <color name="bg_album_name">#30000000</color>
     <color name="bg_photo_placeholder">#D7DDE7</color>
+    <color name="bg_picture_toolbar">#64000000</color>
 </resources>

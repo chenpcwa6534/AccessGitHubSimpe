@@ -5,6 +5,8 @@ import android.util.AttributeSet
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.arasthel.spannedgridlayoutmanager.SpannedGridLayoutManager
 import com.masphe.accessgithub.R
 
 class BuildRecyclerView constructor(context: Context, val attributeSet: AttributeSet? = null): RecyclerView(context, attributeSet){
@@ -14,7 +16,7 @@ class BuildRecyclerView constructor(context: Context, val attributeSet: Attribut
     }
 
     enum class ManagerType(val code: Int){
-        HORIZONTAL(0), VERTICAL(1), GRID(2)
+        HORIZONTAL(0), VERTICAL(1), GRID(2), STAGGERED(3), SPANNED(4)
     }
 
     private fun init(){
@@ -24,6 +26,8 @@ class BuildRecyclerView constructor(context: Context, val attributeSet: Attribut
         this.layoutManager =
             when(managerType){
                 ManagerType.GRID.code -> GridLayoutManager(this.context, column)
+                ManagerType.STAGGERED.code -> StaggeredGridLayoutManager(column, StaggeredGridLayoutManager.VERTICAL)
+                ManagerType.SPANNED.code -> SpannedGridLayoutManager(SpannedGridLayoutManager.Orientation.VERTICAL, column)
                 else -> LinearLayoutManager(this.context, managerType, false)
             }
     }

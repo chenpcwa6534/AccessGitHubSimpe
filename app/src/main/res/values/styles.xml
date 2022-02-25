@@ -32,4 +32,12 @@
     <style name="Toolbar.OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
         <item name="overlapAnchor">false</item>  <!--讓跳出的選項視窗不會遮住Toolbar-->
     </style>
+
+    <style name="Dialog"></style>
+
+    <style name="Dialog.FullScreen">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
 </resources>

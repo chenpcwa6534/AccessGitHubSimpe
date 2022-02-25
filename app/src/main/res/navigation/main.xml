@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user"
+    app:startDestination="@id/albumListFragment">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.masphe.accessgithub.ui.MainActivity"
+        android:label="MainActivity"
+        tools:layout="@layout/fragment_album"/>
+
+    <fragment
+        android:id="@+id/albumListFragment"
+        android:name="com.masphe.accessgithub.ui.album.view.AlbumFragment"
+        android:label="AlbumListFragment"
+        tools:layout="@layout/fragment_album">
+        <action
+            android:id="@+id/action_albumListFragment_to_albumFragment"
+            app:destination="@id/albumFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.masphe.accessgithub.ui.gallery.view.GalleryFragment"
+        android:label="AlbumFragment"
+        tools:layout="@layout/fragment_gallery">
+        <action
+            android:id="@+id/action_albumFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.masphe.accessgithub.ui.gallery.view.GalleryFragment"
+        android:label="GalleryFragment" />
+</navigation>

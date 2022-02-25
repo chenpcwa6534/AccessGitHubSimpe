@@ -73,8 +73,11 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
 
     //Glide
-    implementation "com.github.bumptech.glide:glide:$bumptech_version"
+    implementation ("com.github.bumptech.glide:glide:$bumptech_version") {
+        exclude group: "com.android.support"
+    }
     annotationProcessor "com.github.bumptech.glide:compiler:$bumptech_version"
+    implementation "com.github.bumptech.glide:okhttp3-integration:$bumptech_version"
 
     //Koin
     implementation "org.koin:koin-android:$koin_version"
@@ -87,4 +90,10 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 
     implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    implementation 'com.github.SherlockGougou:BigImageViewPager:androidx-6.2.1'
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    implementation 'com.arasthel:spannedgridlayoutmanager:3.0.2'
 }

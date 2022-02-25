@@ -1,4 +1,4 @@
-package com.masphe.accessgithub.ui.albumList.view
+package com.masphe.accessgithub.ui.album.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AccessGithub</string>
+
+    <string name="error_404">Data Not Found.</string>
+    <string name="error_902">This is no data.</string>
+    <string name="error_throwable">Error is </string>
+
+    <string name="error_user_404">Network error, please check your network then try again.</string>
+    <string name="error_user_902">Data is noting</string>
+    <string name="error_user_throwable">Application error, please try again.</string>
 </resources>

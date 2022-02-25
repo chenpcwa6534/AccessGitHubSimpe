@@ -17,17 +17,21 @@
         <entry key="app/src/main/res/drawable/ic_link.xml" value="0.2495" />
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.2495" />
         <entry key="app/src/main/res/layout/activity_photo.xml" value="0.11458333333333333" />
+        <entry key="app/src/main/res/layout/dialog_gallery.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout/fragment_album.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/fragment_album_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.140625" />
         <entry key="app/src/main/res/layout/fragment_photo.xml" value="0.11458333333333333" />
         <entry key="app/src/main/res/layout/fragment_progress.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.1828774062816616" />
-        <entry key="app/src/main/res/layout/item_album.xml" value="0.2125" />
+        <entry key="app/src/main/res/layout/item_album.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_photo.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_routine_time.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/item_users.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/widger_calendar_week.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/widget_calendar_day.xml" value="0.33" />
+        <entry key="app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>
     </option>
   </component>

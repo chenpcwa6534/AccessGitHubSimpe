@@ -1,31 +1,17 @@
 package com.masphe.accessgithub.extension
 
-import android.view.View
-import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.masphe.accessgithub.dataCenter.api.response.Album
 import com.masphe.accessgithub.dataCenter.api.response.Photo
 import com.masphe.accessgithub.dataCenter.api.response.User
-import com.masphe.accessgithub.ui.album.view.PhotoAdapter
-import com.masphe.accessgithub.ui.albumList.view.AlbumAdapter
-import com.masphe.accessgithub.ui.albumList.view.UserAdapter
-import com.masphe.accessgithub.ui.users.model.Bean
-import com.masphe.accessgithub.ui.users.view.UsersAdapter
+import com.masphe.accessgithub.extension.Adapter.setPhotos
+import com.masphe.accessgithub.ui.album.view.AlbumAdapter
+import com.masphe.accessgithub.ui.album.view.UserAdapter
+import com.masphe.accessgithub.ui.gallery.view.GalleryAdapter
 
 object Adapter{
-    @JvmStatic
-    @BindingAdapter("data", "listener")
-    fun RecyclerView.setUsers(data: Bean.Users?, listener: UsersAdapter.OnItemClickListener){
-        if (data != null) this.adapter = UsersAdapter(data!!, listener)
-    }
-
-    @JvmStatic
-    @BindingAdapter("isStaff")
-    fun TextView.setStaff(isStaff: Boolean){
-        if (isStaff) this.text = "Staff"
-        else this.visibility = View.GONE
-    }
 
     @JvmStatic
     @BindingAdapter("albums", "listener")
@@ -45,9 +31,9 @@ object Adapter{
 
     @JvmStatic
     @BindingAdapter("photos", "listener")
-    fun RecyclerView.setPhotos(photos: MutableList<Photo>?, listener: PhotoAdapter.OnItemClickListener){
+    fun RecyclerView.setPhotos(photos: MutableList<Photo>?, listener: GalleryAdapter.OnItemClickListener){
         photos?.let {
-            this.adapter = PhotoAdapter(photos, listener)
+            this.adapter = GalleryAdapter(photos, listener)
         }
     }
 }
