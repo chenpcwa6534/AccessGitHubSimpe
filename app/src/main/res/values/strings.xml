@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AccessGithub</string>
+    
+    <string name="error_message_304">Not Modified</string>
+    <string name="error_message_401">Unauthorized</string>
+    <string name="error_message_403">Forbidden</string>
+    <string name="error_message_404">Not Found</string>
+    <string name="error_message_415">Unsupported Media Type</string>
+    <string name="error_message_422">Unprocessable Entity</string>
+    <string name="error_message_227">No data</string>
+
+    <string name="error_client_try_again">Please try again.</string>
+    <string name="error_client_error">Application is failure, Please notify customer service </string>
+    <string name="error_client_no_data">Is no data</string>
 </resources>

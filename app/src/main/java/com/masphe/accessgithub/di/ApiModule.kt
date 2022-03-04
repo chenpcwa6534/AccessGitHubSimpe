@@ -1,5 +1,6 @@
 package com.masphe.accessgithub.di
 
+import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -16,7 +17,7 @@ import java.util.concurrent.TimeUnit
 val retrofitClient = module {
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
-            .connectTimeout(Contract().connectTimeout, TimeUnit.SECONDS)
+            .connectTimeout(Contract.connectTimeout, TimeUnit.SECONDS)
             .build()
     }
 
@@ -27,18 +28,18 @@ val retrofitClient = module {
 
     fun provideRetrofit(client: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(Contract().getHostUrl())
+            .baseUrl(Contract.getHostUrl())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(client)
             .build()
     }
 
-    fun provideRepository(client: Retrofit) =
-        Repository(client)
+    fun provideRepository(context: Context, client: Retrofit) =
+        Repository(context, client)
 
     single { provideOkHttpClient() }
     single { provideConverter() }
     single { provideRetrofit(get(), get()) }
-    single { provideRepository(get()) }
+    single { provideRepository(get(), get()) }
 }
