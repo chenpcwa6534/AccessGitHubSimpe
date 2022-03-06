@@ -2,6 +2,7 @@ package com.masphe.accessgithub.dataCenter
 
 import android.content.Context
 import android.util.Log
+import com.masphe.accessgithub.dataCenter.api.Contract
 import com.masphe.accessgithub.dataCenter.api.HttpResult
 import com.masphe.accessgithub.dataCenter.api.StatusCode
 import com.masphe.accessgithub.dataCenter.api.response.User
@@ -13,8 +14,8 @@ class Repository constructor(private val context: Context, private val client: R
 
     private fun getUserService(): UserService = this.client.create(UserService::class.java)
 
-    suspend fun getUsers(): HttpResult<MutableList<User>> {
-        val response = getUserService().getUsers().await()
+    suspend fun getUsers(since: Int = Contract.defaultSince): HttpResult<MutableList<User>> {
+        val response = getUserService().getUsers(since).await()
         return if (response.isSuccessful){
             HttpResult.onSuccess(response.body())
         }else {

@@ -6,7 +6,6 @@ import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.masphe.accessgithub.dataCenter.Repository
 import com.masphe.accessgithub.dataCenter.api.Contract
-import com.masphe.accessgithub.dataCenter.api.RetrofitClient
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit

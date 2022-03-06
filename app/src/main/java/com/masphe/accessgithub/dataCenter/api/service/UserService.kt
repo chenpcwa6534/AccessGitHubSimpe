@@ -15,11 +15,11 @@ interface UserService{
         Contract.HEADER_ACCEPT
     )
     @GET("users")
-    fun getUsers(): Deferred<Response<MutableList<User>>>
+    fun getUsers(@Query("since") since: Int, @Query("per_page") perPage: Int = Contract.usersQtyOfPage): Deferred<Response<MutableList<User>>>
 
     @Headers(
         Contract.HEADER_ACCEPT
     )
     @GET("users/{username}")
-    fun getUser(@Path("username") name: String, @Query("since") since: Int = 0, @Query("per_page") page: Int = 20): Deferred<Response<User>>
+    fun getUser(@Path("username") name: String): Deferred<Response<User>>
 }

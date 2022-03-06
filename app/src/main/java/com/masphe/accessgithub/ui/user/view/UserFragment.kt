@@ -3,32 +3,40 @@ package com.masphe.accessgithub.ui.user.view
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import com.masphe.accessgithub.BR
+import androidx.core.view.ViewCompat
 import com.masphe.accessgithub.R
+import com.masphe.accessgithub.dataCenter.api.response.User
+import com.masphe.accessgithub.extension.Adapter.setStaff
+import com.masphe.accessgithub.extension.Image.setRoundImage
+import com.masphe.accessgithub.ui.Contract
 import com.masphe.accessgithub.ui.base.BaseFragment
-import com.masphe.accessgithub.ui.user.vm.ViewModel
+import com.masphe.accessgithub.ui.user.presenter.IPresenter
 import com.masphe.lib.arch.components.LayoutId
 import kotlinx.android.synthetic.main.fragment_user.*
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 @LayoutId(R.layout.fragment_user)
-class UserFragment: BaseFragment(){
+class UserFragment: BaseFragment(), IView{
     private val TAG = "User Fragment"
 
-    private val viewModel by viewModel<ViewModel>()
+    val presenter: IPresenter by inject { parametersOf(this) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.binding.setVariable(BR.state, this.viewModel.getUIState())
-        this.viewModel.getBundle(this.arguments)
+
+        ViewCompat.setTransitionName(img_picture, "img_picture")
 
         setHasOptionsMenu(true)
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         (activity as AppCompatActivity).supportActionBar!!.setDisplayShowHomeEnabled(true)
-        onUIChangeListener()
+        this.requireArguments().getString(Contract.KEY_USER_NAME)?.let {
+            this.loadingDialog.show()
+            this.presenter.getUserInfo(it)
+        } ?: showUserNameNullError()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -38,14 +46,31 @@ class UserFragment: BaseFragment(){
         return super.onOptionsItemSelected(item)
     }
 
-    private fun onUIChangeListener(){
-        this.viewModel.getUIState().isShowProgress.observe(viewLifecycleOwner, Observer {
-            if (it) progressDialog?.show()
-            else progressDialog?.dismiss()
-        })
+    override fun updateUserInfo(user: User) {
+        img_picture.setRoundImage(user.avatar_url)
+        txt_name.text = user.name
+        txt_bio.text = user.bio
+        txt_login.text = user.login
+        txt_admin.setStaff(user.site_admin)
+        txt_location.text = user.location
+        txt_link.text = user.blog
+        this.loadingDialog.dismiss()
+    }
 
-        this.viewModel.getUIState().isShowErrorDialog.observe(viewLifecycleOwner, Observer {
-            showApiErrorDialog(it)
-        })
+    override fun onShowErrorDialog(msg: String) {
+        val dialog = this.errorAlertDialog
+        dialog.setMessage(msg)
+        dialog.show()
+    }
+
+    override fun showUserNameNullError(){
+        AlertDialog.Builder(this.requireContext())
+            .setTitle("Oops...")
+            .setMessage(this.requireContext().getString(R.string.error_client_no_data))
+            .setPositiveButton("Ok") { dialog, _ ->
+                dialog.dismiss()
+                this.popBackFragment()
+            }
+            .show()
     }
 }

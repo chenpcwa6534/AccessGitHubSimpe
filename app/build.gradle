@@ -53,6 +53,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.android.support:multidex:1.0.3'
 
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
     //Custom lib
     implementation project(path: ':lib')
 
@@ -77,4 +79,8 @@ dependencies {
     implementation "org.koin:koin-android-scope:$koin_version"
     implementation "org.koin:koin-android-viewmodel:$koin_version"
     implementation "org.koin:koin-androidx-fragment:$koin_version"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 }
